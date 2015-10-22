@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/danigb/music.note/issues"
   },
-  "homepage": "https://github.com/danigb/music.note#readme"
+  "homepage": "https://github.com/danigb/music.note#readme",
+  "devDependencies": {
+    "vows": "^0.8.1"
+  }
 }
