@@ -47,7 +47,7 @@
 <li>
 <a href="https://github.com/danigb/music.note/blob/master/index.js">index.js</a>
 <span>, </span>
-<a href="https://github.com/danigb/music.note/blob/master/index.js#L79">lineno 79</a>
+<a href="https://github.com/danigb/music.note/blob/master/index.js#L81">lineno 81</a>
 </li>
 </ul></dd>
 </dl>
@@ -67,6 +67,62 @@ Type
 <pre class="prettyprint"><code>pitch.accidentals('C##3') // => '##'
 pitch.accidentals('Bb4') // => 'b'
 pitch.accidentals('E') // => ''</code></pre>
+</dd>
+<dt>
+<h4 class="name" id="alterations"><span class="type-signature"></span>alterations<span class="signature">(pitch)</span><span class="type-signature"> &rarr; {String}</span></h4>
+</dt>
+<dd>
+<div class="description">
+<p>Get alterations of a pitch</p>
+<p>The alteration is the number of sharps or flats from the natural form</p>
+</div>
+<h5>Parameters:</h5>
+<table class="params">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th class="last">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name"><code>pitch</code></td>
+<td class="type">
+<span class="param-type">String</span>
+|
+<span class="param-type">Array</span>
+</td>
+<td class="description last"><p>the pitch</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="details">
+<dt class="tag-source">Source:</dt>
+<dd class="tag-source"><ul class="dummy">
+<li>
+<a href="https://github.com/danigb/music.note/blob/master/index.js">index.js</a>
+<span>, </span>
+<a href="https://github.com/danigb/music.note/blob/master/index.js#L64">lineno 64</a>
+</li>
+</ul></dd>
+</dl>
+<h5>Returns:</h5>
+<div class="param-desc">
+<p>the pitch alterations</p>
+</div>
+<dl>
+<dt>
+Type
+</dt>
+<dd>
+<span class="param-type">String</span>
+</dd>
+</dl>
+<h5>Example</h5>
+<pre class="prettyprint"><code>pitch.alterations('C##3') // => 2
+pitch.alterations('Bb4') // => -1
+pitch.alterations('E') // => 0</code></pre>
 </dd>
 <dt>
 <h4 class="name" id="cents"><span class="type-signature"></span>cents<span class="signature">(from, to, decimals)</span><span class="type-signature"> &rarr; {Integer}</span></h4>
@@ -118,7 +174,7 @@ pitch.accidentals('E') // => ''</code></pre>
 <li>
 <a href="https://github.com/danigb/music.note/blob/master/index.js">index.js</a>
 <span>, </span>
-<a href="https://github.com/danigb/music.note/blob/master/index.js#L182">lineno 182</a>
+<a href="https://github.com/danigb/music.note/blob/master/index.js#L183">lineno 183</a>
 </li>
 </ul></dd>
 </dl>
@@ -173,7 +229,7 @@ if you need to know the difference between the the frequency and the pitch.</p>
 <li>
 <a href="https://github.com/danigb/music.note/blob/master/index.js">index.js</a>
 <span>, </span>
-<a href="https://github.com/danigb/music.note/blob/master/index.js#L134">lineno 134</a>
+<a href="https://github.com/danigb/music.note/blob/master/index.js#L135">lineno 135</a>
 </li>
 </ul></dd>
 <dt class="tag-see">See:</dt>
@@ -234,7 +290,7 @@ pitch class is given to the same midi number.</p>
 <li>
 <a href="https://github.com/danigb/music.note/blob/master/index.js">index.js</a>
 <span>, </span>
-<a href="https://github.com/danigb/music.note/blob/master/index.js#L97">lineno 97</a>
+<a href="https://github.com/danigb/music.note/blob/master/index.js#L98">lineno 98</a>
 </li>
 </ul></dd>
 </dl>
@@ -287,7 +343,7 @@ Type
 <li>
 <a href="https://github.com/danigb/music.note/blob/master/index.js">index.js</a>
 <span>, </span>
-<a href="https://github.com/danigb/music.note/blob/master/index.js#L29">lineno 29</a>
+<a href="https://github.com/danigb/music.note/blob/master/index.js#L19">lineno 19</a>
 </li>
 </ul></dd>
 </dl>
@@ -340,7 +396,7 @@ Type
 <li>
 <a href="https://github.com/danigb/music.note/blob/master/index.js">index.js</a>
 <span>, </span>
-<a href="https://github.com/danigb/music.note/blob/master/index.js#L45">lineno 45</a>
+<a href="https://github.com/danigb/music.note/blob/master/index.js#L34">lineno 34</a>
 </li>
 </ul></dd>
 </dl>
@@ -393,7 +449,7 @@ Type
 <li>
 <a href="https://github.com/danigb/music.note/blob/master/index.js">index.js</a>
 <span>, </span>
-<a href="https://github.com/danigb/music.note/blob/master/index.js#L71">lineno 71</a>
+<a href="https://github.com/danigb/music.note/blob/master/index.js#L47">lineno 47</a>
 </li>
 </ul></dd>
 </dl>
@@ -453,7 +509,7 @@ pitch.pitchClass('cx2') // => 'C##'</code></pre>
 <li>
 <a href="https://github.com/danigb/music.note/blob/master/index.js">index.js</a>
 <span>, </span>
-<a href="https://github.com/danigb/music.note/blob/master/index.js#L161">lineno 161</a>
+<a href="https://github.com/danigb/music.note/blob/master/index.js#L162">lineno 162</a>
 </li>
 </ul></dd>
 </dl>
@@ -509,7 +565,7 @@ pitch.toFreq('A3', 444) // => 222</code></pre>
 <li>
 <a href="https://github.com/danigb/music.note/blob/master/index.js">index.js</a>
 <span>, </span>
-<a href="https://github.com/danigb/music.note/blob/master/index.js#L117">lineno 117</a>
+<a href="https://github.com/danigb/music.note/blob/master/index.js#L118">lineno 118</a>
 </li>
 </ul></dd>
 </dl>

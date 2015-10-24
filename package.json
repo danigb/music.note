@@ -1,12 +1,13 @@
 {
   "name": "music.note",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Tiny library to convert from midi <-> note name <-> frequency",
   "main": "index.js",
   "scripts": {
     "test": "vows --spec test/*.js",
     "docs": "docme API.md",
-    "dist": "browserify index.js > dist/music.note.js && browserify index.js | uglifyjs > dist/music.note.min.js && ls -all dist/*",
+    "dist": "browserify index.js | uglifyjs > dist/music.note.min.js&& ls -all dist/",
+    "disc": "browserify --full-paths index.js | uglifyjs | discify > tmp/disc.html&& open tmp/disc.html",
     "coverage": "istanbul cover vows test/*.js",
     "cover": "npm run coverage && open ./coverage/lcov-report/index.html",
     "benchmarks": "node test/benchmarks/*.js",

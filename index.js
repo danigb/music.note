@@ -2,28 +2,18 @@
 
 var notation = require('music.notation')
 
-// decorate a function to force the param to be an array-pitch
-function useArray (fn) {
-  return function (pitch) {
-    var p = notation.arr(pitch)
-    return p ? fn(p) : null
-  }
-}
-
 // Semitones from C to C D E F G A B
 var SEMITONES = [ 0, 2, 4, 5, 7, 9, 11 ]
 // Chromatic melodic scale
 var CHROMATIC = [ 'C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B' ]
 
 function note (src) {
-  var arr = notation.arr(src)
-  if (arr && arr.length !== 3) return notation.str(arr)
-  else return null
+  return notation.str(note.parse(src))
 }
 
 note.parse = function (note) {
   var arr = notation.arr(note)
-  return arr.length !== 3 ? arr : null
+  return arr && arr.length !== 3 ? arr : null
 }
 
 /**
@@ -37,10 +27,9 @@ note.parse = function (note) {
  * @example
  * pitch.letter('fx') // => 'F'
  */
-note.letter = function (pitch) {
-  var n = note(pitch)
-  return n ? n.slice(0, 1) : null
-}
+note.letter = notation.op(function (pitch) {
+  return 'CDEFGAB'.charAt(pitch[0])
+})
 
 /**
  * Get the octave of a pitch
@@ -53,13 +42,13 @@ note.letter = function (pitch) {
  * @example
  * pitch.octave('F#3') // => 3
  */
-note.octave = useArray(function octave (arr) {
-  return arr[2]
-})
+note.octave = notation.op(function (arr) { return arr[2] })
 
 /**
  * Get the pitch class (pitch name without octaves) from a pitch
  *
+ * @name pitchClass
+ * @function
  * @param {String|Array} pitch - the pitch to get the pitchClass number from
  * @return {String} the pitch class
  *
@@ -68,13 +57,26 @@ note.octave = useArray(function octave (arr) {
  * pitch.pitchClass('ab') // => 'Ab'
  * pitch.pitchClass('cx2') // => 'C##'
  */
-function pitchClass (arr) {
+note.pitchClass = notation.op(function (arr) {
   return arr ? [arr[0], arr[1]] : null
-}
-note.pitchClass = function (pitch) {
-  if (Array.isArray(pitch)) return pitchClass(pitch)
-  else return notation.str(pitchClass(notation.arr(pitch)))
-}
+})
+
+/**
+ * Get alterations of a pitch
+ *
+ * The alteration is the number of sharps or flats from the natural form
+ *
+ * @name alterations
+ * @function
+ * @param {String|Array} pitch - the pitch
+ * @return {String} the pitch alterations
+ *
+ * @example
+ * pitch.alterations('C##3') // => 2
+ * pitch.alterations('Bb4') // => -1
+ * pitch.alterations('E') // => 0
+ */
+note.alterations = notation.op(function (p) { return p[1] })
 
 /**
  * Get the accidentals from a pitch
@@ -89,10 +91,9 @@ note.pitchClass = function (pitch) {
  * pitch.accidentals('Bb4') // => 'b'
  * pitch.accidentals('E') // => ''
  */
-note.accidentals = function (p) {
-  var pc = note.pitchClass(p)
-  return pc ? pc.substring(1) : null
-}
+note.accidentals = notation.op(function (p) {
+  return new Array(Math.abs(p[1]) + 1).join(p[1] < 0 ? 'b' : '#')
+})
 
 /**
  * Get the pitch of the given midi number
@@ -126,7 +127,7 @@ note.fromMidi = function (midi) {
  * pitch.toMidi('A4') // => 69
  * pitch.toMidi('A3') // => 57
  */
-note.toMidi = useArray(function (p) {
+note.toMidi = notation.op(function (p) {
   if (!p[2] && p[2] !== 0) return null
   return SEMITONES[p[0]] + p[1] + 12 * (p[2] + 1)
 })
