@@ -1,11 +1,11 @@
 {
   "name": "music.note",
-  "version": "0.0.2",
-  "description": "Tiny library to convert from midi <-> note name <-> frequency",
+  "version": "0.0.4",
+  "description": "Manipulate music notes",
   "main": "index.js",
   "scripts": {
     "test": "vows --spec test/*.js",
-    "docs": "docme API.md",
+    "docs": "documentation -f md node_modules/music.note.scientific/index.js node_modules/music.note.scientific.parse/index.js node_modules/music.note.midi/index.js node_modules/music.note.from-midi/index.js node_modules/music.note.freq/index.js node_modules/music.note.transpose/index.js > API.md",
     "dist": "browserify index.js | uglifyjs > dist/music.note.min.js&& ls -all dist/",
     "disc": "browserify --full-paths index.js | uglifyjs | discify > tmp/disc.html&& open tmp/disc.html",
     "coverage": "istanbul cover vows test/*.js",
@@ -20,6 +20,7 @@
   },
   "keywords": [
     "music",
+    "note",
     "music.kit"
   ],
   "author": "danigb",
@@ -29,6 +30,14 @@
   },
   "homepage": "https://github.com/danigb/music.note#readme",
   "devDependencies": {
-    "vows": "^0.8.1"
+    "vows": "^0.8.x"
+  },
+  "dependencies": {
+    "music.note.freq": "0.0.x",
+    "music.note.from-midi": "0.0.x",
+    "music.note.midi": "0.0.x",
+    "music.note.scientific": "0.0.x",
+    "music.note.scientific.parse": "0.0.x",
+    "music.note.transpose": "0.0.x"
   }
 }

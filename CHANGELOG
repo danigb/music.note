@@ -1,10 +1,12 @@
 CHANGELOG
 
+[0.0.3] Now this module is a wrapper
 [0.0.2] Use notation.op. Simplify code. Add 'alterations' function
 [0.0.1] First version
 
 
 DIST
+[0.0.3] 7kb
 [0.0.1] 12832 / 4556
 
 BENCHMARKS
